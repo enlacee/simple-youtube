@@ -1,83 +1,69 @@
-
 <?php
 
- $videoID = $_REQUEST['v'];  $videoID =(substr($videoID,0,11));
- $pag_estado = $_GET['p'];
+ $videoID = !empty($_REQUEST['v']) ? substr($_REQUEST['v'],0,11) : '';
+ $pag_estado = !empty($_GET['p']) ? $_GET['p'] : '';
  
- $video = imprimir($videoID,$pag_estado);
+ $data_video = imprimir($videoID, $pag_estado, $YOUR_API_KEY);
+ $video = $data_video[0];
  //$video; //ARRAy datos almacen
  /**********************************************************************/
-	$titulo=substr(ucwords($video[1]['titulo']),0,50);
- 	$url_1  = $video[1]['id'];
- 	$url_2  = urls_amigables($titulo); 	
+	$videoTitulo = substr(ucwords($video['titulo']),0,50);
+ 	$url_1 = $video['id'];
+ 	$url_2 = urls_amigables($videoTitulo); 	
  	$id = $url_1.'-'.$url_2;
  /*********************************************************************/	
 	//------------
 	
-	function imprimir($videoID,$pag_estado){	//http://gdata.youtube.com/feeds/api/videos?vq=I27WefdSgI4
+/**
+* https://www.googleapis.com/youtube/v3/videos?id='+id_youtube+'&key='+YOUR_API_KEY+'&part=snippet,contentDetails,statistics,status
+*/
+function imprimir($videoID,$pag_estado, $YOUR_API_KEY){
+	$video = false; 
 
-		if(!empty($pag_estado))
-			return false;		
-		else {
-		
-		$feedURL = 'http://gdata.youtube.com/feeds/api/videos?vq='.$videoID;
-		$sxml = simplexml_load_file($feedURL);
-		
-		$i=0;
-		//--------
-		foreach ($sxml->entry as $entry) {			
-			global $i;
-				$i++;
-				
-		$media = $entry->children('http://search.yahoo.com/mrss/');  
-		
-		$attrs		= $media->group->player->attributes();		
-		$url_t	  	= $attrs['url'];	
-		$titulo		= $media->group->title;
-		$descripcion= $media->group->description;
-		$etiqueta	= $media->group->keywords;
-		
-		// get <yt:duration> node for video length
-		$yt = $media->children('http://gdata.youtube.com/schemas/2007');
-		$attrs = $yt->duration->attributes();
-		$seg = $attrs['seconds'];//*****OK		
-	
-		
-	/**********************************************/
-		
-	/*******************************************/
-		if($i<=1){			//($i<=1)
-		$video[$i] =array('titulo'		=> $titulo,
-					'url'			=> $url_t,
-					'id'			=> getIde($url_t),
-					'img'			=> "http://img.youtube.com/vi/".getIde($url_t)."/default.jpg",
-					'pag_video' 	=> 'video.php?v='.getIde($url_t),
-					
-					'pag_etiqueta'	=> 'video.php?tag=',
-					'duracion'		=> minutes($seg),
-					'etiqueta'		=> $etiqueta,
-					'descripcion'	=> descripcion_c($descripcion));
+	if (!empty($pag_estado)) {
+		$video = false;		
+	} else {
+
+		$url_api = 'https://www.googleapis.com/youtube/v3/videos'
+		. '?id=' . $videoID
+		. '&part=snippet,contentDetails,statistics,status'
+		. '&key=' . $YOUR_API_KEY;
+
+		//echo $url_api;exit;
+
+		$string = file_get_contents($url_api);
+		$json = json_decode($string, true);
+		$video = array();
+
+		if (!is_null($json) && is_array($json) && isset($json['pageInfo'])) {
+			foreach ($json['items'] as $key => $value) {
+				$data_id = $json['items'][$key]['id'];
+				$data_O1 = $value['snippet'];
+
+				$video[] = array(
+					'titulo' => $data_O1['title'],
+					'url' => 'https://www.youtube.com/watch?v=' . $data_id,
+					'id' => $data_id,
+					'img' => $data_O1['thumbnails']['medium']['url'],
+					'pag_video' => 'video.php?v='. $data_id,
+					'pag_etiqueta' => 'video.php?tag=',
+					'duracion' => '123', //minutes($seg),
+					'etiqueta' => 'etiqueta',
+					'descripcion' => descripcion_c($data_O1['description'])
+				);
+			}
 		}
+			
+	}
 		
-		}//fin de for		
-		return $video;
-		
-		}
-		
-		
-	}//fin de IMPRIMIR
+	return $video;
+}//fin de IMPRIMIR
 	
 	
-		function tituloCorto($tit){				
-			return substr($tit,0,40);
-		}		
+	function tituloCorto($tit){				
+		return substr($tit,0,40);
+	}		
 
-		function descripcion_c($texto){
-			return substr($texto,0,400);	
-		}
-		
-		
-		
-
-
-?>		
+	function descripcion_c($texto){
+		return substr($texto,0,400);	
+	}

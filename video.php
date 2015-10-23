@@ -1,18 +1,18 @@
+<?php include 'recursos/functions.php'; ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html<?php	include 'recursos/functions.php'; ?>>
+<html>
 <?php
 	include 'recursos/CrearReproductor.php';	
 	include 'recursos/VideosRelacionados.php';
 ?>
 <head>
 
-<meta name="description" content="<?php echo $video[1]['descripcion'];?>" />
-        <meta name="keywords" content="<?php echo $video[1]['etiqueta']?>" />
+<meta name="description" content="<?php echo $video['descripcion'];?>" />
+<meta name="keywords" content="<?php echo $video['etiqueta']?>" />
+<meta http-equiv="content-language" content="ES" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-        <meta http-equiv="content-language" content="ES" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<title><?php echo $video[1]['titulo'];?> | <?php echo $TITULO;?></title>
+<title><?php echo $video['titulo'];?> | <?php echo $titulo; ?></title>
 <!-- Titulo de la pagina-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="icon" href="http://www.tiernoamor.com/favicon.ico"
@@ -39,7 +39,7 @@
 <div id="buscador">
 
  <form name="b_vi" action="<?php echo $HOST; ?>index.php" method="get">
-   <input id="q"	type="text" name="q" size="30" value="<?php echo $_GET['q'];?>" class="input">
+   <input id="q"	type="text" name="q" size="30" value="<?php echo !empty($_GET['q']) ? $_GET['q'] : ''; ?>" class="input">
    <input id="send" type="submit"  value="Buscar videos">
 </form>
  
@@ -112,7 +112,7 @@ if(empty($_REQUEST['p'])){
 
 	$html = '';
 	
-	$html .= '<h1>'.$video[1]['titulo'].'</h1>';
+	$html .= '<h1>'.$video['titulo'].'</h1>';
 
 	$html .= '<div id="reproductor">';
 	$html .= '<span id ="google_ads_frame1">
@@ -129,17 +129,17 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 </span>';
 	$html .= '<div id ="r-video">';//inicio
-//	$html .= '<iframe class="youtube-player" type="text/html" width="629" height="353" src="http://www.youtube.com/embed/'.$video[1]['id'].'" frameborder="0"></iframe><br>';
+//	$html .= '<iframe class="youtube-player" type="text/html" width="629" height="353" src="http://www.youtube.com/embed/'.$video['id'].'" frameborder="0"></iframe><br>';
 	
-	$html .= '<object width="629" height="353" id="ytplayer" data="http://www.youtube.com/v/'.$video[1]['id'].'?enablejsapi=1&autoplay=1&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" >';
+	$html .= '<object width="629" height="353" id="ytplayer" data="http://www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" >';
 	$html .= '<param value="always" name="allowscriptaccess">';
-    $html .= '<param value="http://www.youtube.com/v/'.$video[1]['id'].'?enablejsapi=1&autoplay=1&amp;version=3" name="movie">';
+    $html .= '<param value="http://www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" name="movie">';
     $html .= '</object>';	
 
 	
 	$html .= '<div id="descripcion">';
-	$html .= '<p><b>'.$video[1]['titulo'].'</b></p>';
-	$html .= $video[1]['descripcion'];
+	$html .= '<p><b>'.$video['titulo'].'</b></p>';
+	$html .= $video['descripcion'];
 	$html .= '</div>';//fin div descripcion
 	
 
@@ -155,7 +155,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	
 	$html .= '<p><a href="'.$HOST.'formulario.php?url='.$HOST2.'">dedicarSSSSSSvideo</a></p>';
 	
-	$html .= '<a title="'.$video[1]['titulo'].'" href ="http://www.youtube-mp3.org/get?video_id='.$video[1]['id'].'" target="_blank">descargar este video en MP3 (audio)</a>';
+	$html .= '<a title="'.$video['titulo'].'" href ="http://www.youtube-mp3.org/get?video_id='.$video['id'].'" target="_blank">descargar este video en MP3 (audio)</a>';
 	$html .= '<!-- AddThis Button BEGIN -->
 <div class="addthis_toolbox addthis_default_style">
 <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
@@ -181,7 +181,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 <?php 
 /*
-	$etiqueta = $video[1]['etiqueta'];
+	$etiqueta = $video['etiqueta'];
 	$nun = count($etiqueta);
 	
 	for($x=0; $x<$nun; $x++){		
@@ -210,7 +210,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	<div class="both"></div>	
 	
 	<?php
-	if(!empty($_REQUEST['v'])){		
+	if(!empty($_REQUEST['v'])){	
+/*
 		echo '<div id="medio"><h2>Videos relacionadosss</h2></div>';	
 		
 		$id		= $_REQUEST['v'];
@@ -222,8 +223,9 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		//echo '<h1>id='.$id.'</h1>';
 		
 		new VideosRelacionados($id,$pagina);
+*/
 		
-		}
+	}
 
 	?>
 	
@@ -235,7 +237,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <div class="both"></div>
 
 <div id="pie">
-	<a href="<?php echo $HOST; ?>"><?php echo $Titulo; ?></a>
+	<a href="<?php echo $HOST; ?>"><?php echo $titulo; ?></a>
 	<a href="http://whos.amung.us/stats/rk37gvmh/" target=_blank><IMG border=0 src="http://whos.amung.us/swidget/rk37gvmh.png" width=0 height=0></a>
 </div>
 

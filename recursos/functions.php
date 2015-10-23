@@ -6,6 +6,7 @@ $configuracion = parse_ini_file("config/config.ini",TRUE);
 $HOST 	= $configuracion['pagina']['host'];
 $titulo	= $configuracion['pagina']['titulo'];
 $autor  = $configuracion['autor']['nombre'];
+$YOUR_API_KEY = $configuracion['pagina']['your_api_key'];
 
 
 //$HOST	= "http://".$_SERVER['HTTP_HOST'].'/video/';	//."/".@$_SERVER['REQUEST_URI']; //RUTA especifica
@@ -42,11 +43,11 @@ if ($page == 1) {
 *
 */
 function leer_feed($q, $npag, $cant) {
+	$configuracion = parse_ini_file("config/config.ini",TRUE);
+	$YOUR_API_KEY = $configuracion['pagina']['your_api_key'];
 
-	$YOUR_API_KEY = 'AIzaSyAU5Qr9YKw_zA28JheHmcFGyDpd-W7gipw';
 	$maxResults = $cant; //$cant;
 	//$q = 'selena+gomez';
-
 	$stringPageToken = isset($_REQUEST['pageToken']) ? '&pageToken=' . $_REQUEST['pageToken'] : '';
 	$url_api = 'https://www.googleapis.com/youtube/v3/search'
 		. '?part=snippet'
