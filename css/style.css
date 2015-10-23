@@ -1,0 +1,335 @@
+/* CSS Document */
+
+*{
+margin:0;
+padding:0;
+}
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;outline:0;vertical-align:baseline;background:transparent;margin:0;padding:0;}
+
+
+body{	
+	background:#FFF;
+	color:#999999;	
+	font-family: arial, Tahoma, "Lucida Sans Unicode", "Lucida Grande", verdana, geneva, sans-serif;
+	font-size: 12px;
+	letter-spacing:0.01em;
+	line-height:1.35em;
+	margin:0;
+	padding:0;
+}
+/*HEADER*/
+h1{
+	margin:10px auto;
+	text-align:left;
+}
+h1 a{
+	font-size:0.1px;
+}
+h2 {
+	font-size:18px;
+	}
+
+h2,#medio{
+	text-align:left;
+	background-color:#EFF4FC;	
+}
+h2 a,#suggest a{
+	color:#4889A6;
+	font-weight:bold;
+}
+
+
+a { color:#003873; text-decoration:none; }
+a:hover { text-decoration:none;}
+/*a:visited{color:#92CFE7;}*/
+
+#pagina{/*
+	background-color:#FFFFFF;
+	width:980px;	
+	margin:0 auto;*/
+}
+
+#contenedor{
+	width:980px;	
+	margin:0 auto;
+}
+
+#header {
+/*background:#FFFFFF url(http://www.tiernoamor.com/tiernoamor.gif) no-repeat;*/
+margin:0px auto 0 auto;
+height:70px;
+
+}
+
+#buscador{
+	background-color:#E7E6E0;
+	text-align:center;
+	margin:0 auto 0 auto;
+	padding:2px;
+}
+#q{
+	padding:5px;
+	border:#C0C0C0 solid 1px;
+	width:300px;
+	font-size:16px;
+	color:#666;
+}
+#send{
+	background:#C0C0C0;
+	border:#D1CDBE solid 1px;
+	color:#fff;
+	padding:4px;
+	font-size:16px;;
+	cursor:pointer;
+}
+#send:hover{
+	/*background:#E7E7E7;*/
+}
+
+
+
+.linea{
+	border-top:1px solid #CCCCCC;
+	margin:0 0 10px 0;
+}
+
+#isquierda{	float:left;	width:336px;}
+
+#derecha{	float:right;	width:680px;}
+
+.modulo{
+	text-align:left;
+	border:1px solid #6F6F6F;
+	padding:5px 10px;
+	margin:5px;
+}
+
+#reproductor{
+	background:#FFFFFF;
+	border:solid #F3F3F3  1px;
+	padding:5px;
+	min-height:410px;
+}
+#r-video{
+	width:629px;	
+	}
+#google_ads_frame1{
+	width:336px;
+	height:300px;
+	float:right;
+	background:#FFF;
+	}
+
+
+
+/**------- Detalles --------**/
+
+#paginador {
+	padding: 10px 0;
+	text-align: center;
+	background-color: #EFF4FC;
+	border:dotted #D6DEEE 1px;
+}
+#paginador a{
+	color: #000;
+	font-weight: bold;
+	font-size: 110%;
+}
+
+.both{clear:both;}
+
+#pie{
+	height:70px;
+	margin:40px 0 0 0;
+	text-align:center;
+}
+
+
+
+#txt-buscar{
+	background-color:#FFF;
+	border:1 solid #E9E9E9;
+	color:#666666;
+	font-size:16px;
+	padding:5px;
+	width:310px;	
+}
+
+.submit{
+width:70px;
+border: 1px solid #DDD;
+height:22px;
+font-weight:bold;
+background-color:#FFFFFF;
+}
+
+#breadcrumbs {
+	color: #6699FF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:small;
+	margin: 0 0 8px 8px;
+}
+
+#breadcrumbs a, #breadcrumbs a:visited, #breadcrumbs a:link, #breadcrumbs a:active {
+	color: #6699FF;
+	text-decoration:none;
+}
+
+#breadcrumbs a:hover {
+	text-decoration:underline;
+}
+
+#medio{
+	height: auto;	
+	border:dotted #D6DEEE 1px;
+	margin:7px 0;
+	padding:5px;
+	}
+
+.img {
+	background:none repeat scroll 0 0 #FFFFFF;
+	border:1px solid #C0C0C0;
+	padding:5px;
+}
+.img a {padding:0; margin:0;}
+
+.img img{
+	border:0 none;
+	height:126px;
+	width:168px;
+}
+.images, #r-videos , .r-videos {
+	float:left;
+	height:240px;
+	padding:10px 5px;
+	text-align:center;
+	width:180px;
+}
+
+
+.images span {
+	font-size:10px;
+}
+
+
+
+/*-------------------------------------- POPUP ----------------------------------------*/
+
+#popup {
+height: 100%;
+width: 100%;
+background: #000000;
+position: absolute;
+top: 0;
+-moz-opacity:0.75;
+-khtml-opacity: 0.75;
+opacity: 0.75;
+filter:alpha(opacity=75);
+}
+
+#window {
+width: 600px;
+height: 300px;
+margin: 0 auto;
+border: 1px solid #000000;
+background: #ffffff;
+position: absolute;
+top: 200px;
+left: 25%;
+}
+
+/*-------------------------------------- JS ----------------------------------------*/
+#divENVXMAIL{
+
+
+width:350px;/*400px;*/
+height:450px;
+background:#FCFCFC;
+display:none;
+position:absolute;
+right:20px;
+top:140px;
+border:#999999 solid 1px;
+z-index:99999;
+
+
+}
+
+#popup-cabecera{
+background-color:#E3E3E3;
+
+height:28px;
+border-bottom:#999999 solid 1px;
+}
+
+.popup-cerrar{
+width:25px;
+height:25px;
+float:right;
+cursor:pointer;
+background:#003399;
+background:transparent url(../images/cancel.png) no-repeat top;
+margin:2px;
+
+}
+
+.popup-lbl{
+font:18px/28px arial normal;
+padding:0 5px;
+}
+
+
+/*************************formulario email*/
+
+#form-enviar-mail{
+width:300px;
+margin:0 auto 0 auto;
+}
+
+#divENVXMAIL input,textarea{
+	background-color:#FFFFFF;
+	border:1px solid #ACACAC;	
+	font-size:20px verdana;
+	
+	display:block;
+	padding:5px 8px;
+	margin:3px 0 0 10px;
+
+}
+.negrita{
+	font: bold 12px/25px Arial;
+	color: #555555;
+	text-align:right;
+}
+
+.texto{
+display:block;
+width:50px;
+padding:0 0 0 10px;
+font:10px/10px arial;
+}
+
+
+/*********************** AJAX ******************/
+
+#rpta_ajax{	
+width:320px;
+height:200px;
+margin:100px auto 100px auto ;
+
+}
+
+/**********************  left  and rigth ***********/
+
+#left{
+	width:580px;
+	min-height:500px;
+}
+
+#rigth{
+	width:400px;
+	height:350px;
+	float:right;
+}
+

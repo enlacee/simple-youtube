@@ -1,0 +1,37 @@
+
+#SetOutputFilter DEFLATE
+
+RewriteEngine on
+
+Rewriterule ^(.+)-(.+).html video.php?v=$1&$titulo=$2 [L]
+
+Rewriterule ^/(.+)-(.+)/(.+).html video.php?v=$1$titulo=$2&pag=$3 [L]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Rewriterule ^ver/(.+)/(.+)/.html video.php?v=$1&$titulo=$2
