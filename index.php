@@ -5,21 +5,21 @@
  * -primera parte 'NO ORIENTADO A OBJETOS'
  * index.php = utliza recursos.php
  * 	Aqui recorremos con un For Para ver los resultados
- * 
+ *
  * Es bastante modificable esta plantilla
- *  
+ *
  * -segunda parte 'POO'
  * bueno siempres se recomienda pero como dicen muchos, y lo
  * eh comprobado utiliza un poco mas de recuros pero el resutado
  * vale la pena el trabajo sale mas ordenado y facil de manipular.
- * 
+ *
  * @author anbCopitan
  * @copyright aporte youtube
- * @link 
+ * @link
  */?>
-
+<?php include 'recursos/functions.php'; ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html<?php	include 'recursos/functions.php'; ?>>
+<html>
 <head>
 
 <meta name="description" content="Buscar gratis millones de videos en toda la red de youtube. Tierno amor portal de videos digitales mas grande la red." />
@@ -55,11 +55,11 @@
 <body>
 <div id="pagina">
 
-<div id="header"></div> 
+<div id="header"></div>
 
 <div id="buscador">
   <form name="b_vi" action="index.php" method="get">
-    <input id="q"	type="text" name="q" size="30" value="<?php echo $_GET['q'];?>" class="input">
+    <input id="q"	type="text" name="q" size="30" value="<?php echo !empty($_GET['q']) ? $_GET['q'] : ''; ?>" class="input">
     <input  type="submit" id="send"  value="Buscar Videos">
   </form>
 </div>
@@ -72,26 +72,26 @@
 <div id="modulo">
 
 <?php
-	if($num > 1) {		
-		echo '<div id="medio">';			
-		echo '<h2>Videos encontrados...</h2>';				
+	if (isset($num) && $num > 0) {
+		echo '<div id="medio">';
+		echo '<h2>Videos encontrados...</h2>';
 		echo '</div>';
-		
-//INICIO EL FOR
-		for($i=0; $i<=$cant; $i++) { if($vid[$i]['id']!="") {?>
-        
-<div class="images">            
+
+    //INICIO EL FOR
+		for ($i = 0; $i < $cant; $i++) { if($vid[$i]['id']!="") {?>
+
+<div class="images">
 <div class="img">
 <a	href="<?php echo $vid[$i]['pag_video']; ?>" > <img src=' <?php echo $vid[$i]['img']; ?> 'alt=' <?php echo $vid[$i]['titulo']; ?> '></a>
 </div><!-- FIN img-->
 
 <p> <?php echo '<a title="'.$vid[$i]['titulo'].'" href="'.$vid[$i]['pag_video'].'">'.$vid[$i]['titulo'].'</a>'; ?></p>
-<!--link-->			
+<!--link-->
 <span>duracion: <?php echo $vid[$i]['duracion']; ?>min  | visto <?php echo $vid[$i]['contador_view'];?> veces</span>
 
 </div><!-- Fin class imgages  --> <?php } }
-		
-	}else{			
+
+	} else {
 
 		//mostrat CONTENDIDO ANTES DE BUSCAR
 } ?>
@@ -110,14 +110,15 @@
 
 
 
-<?php if($num>1) {?>
+<?php if (isset($num) && $num > 0) { ?>
 <div id="paginador"><?php
+//echo $dataFeed['page_next']; 
 	if ($page==2)
-		echo '<span><a href="?q='.$q.'"><< Anterior</a></span>';
+		echo '<span><a href="'.$dataFeed['page_prev'].'"><< Anterior</a></span>';
 	elseif($page!=1 /*||$page != 0*/)
-		echo '<span><a href="?q='.$q.'&p='.($page-1).'"><< Anterior </a></span>';
-				
-	echo '<span><a href="?q='.$q.'&p='.($page+1).'"> Siguiente >></a></span>';?>
+		echo '<span><a href="'.$dataFeed['page_prev'].'&p='.($page-1).'"><< Anterior </a></span>';
+
+	echo '<span><a href="'.$dataFeed['page_next'].'&p='.($page+1).'"> Siguiente >></a></span>';?>
 </div>
 
 <div class="both"></div>
