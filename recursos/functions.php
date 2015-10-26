@@ -1,5 +1,4 @@
 ﻿<?php
-
 //aki donde tienes que arreglar para tu HOST
 $configuracion = parse_ini_file("config/config.ini",TRUE);
 //variables
@@ -7,7 +6,6 @@ $HOST 	= $configuracion['pagina']['host'];
 $titulo	= $configuracion['pagina']['titulo'];
 $autor  = $configuracion['autor']['nombre'];
 $YOUR_API_KEY = $configuracion['pagina']['your_api_key'];
-
 
 //$HOST	= "http://".$_SERVER['HTTP_HOST'].'/video/';	//."/".@$_SERVER['REQUEST_URI']; //RUTA especifica
 //$HOST	= "http://".$_SERVER['HTTP_HOST'].'/video/';
@@ -58,15 +56,11 @@ function leer_feed($q, $npag, $cant) {
 		//. '&topicId=/m/05z1_'
 		. '&q=' . $q
 		. $stringPageToken
-		//. '&prevPageToken=' . $_SESSION['youtube']['prevPageToken']
 		. '&key=' . $YOUR_API_KEY;
-
-//print $url_api; //exit;
-//ECHO "           ";
 
 	$string = file_get_contents($url_api);
 	$json = json_decode($string, true);
-	
+
 	$pageTokenNext = '';
 	$pageTokenPrev = '';
 	$items = array();
@@ -76,7 +70,7 @@ function leer_feed($q, $npag, $cant) {
 
 		if (isset($json['items']) && count($json['items']) > 0) {
 			foreach ($json['items'] as $key => $value) {
-				$data_id = $json['items'][$key]['id']['videoId'];
+				$data_id = $value['id']['videoId'];
 				$data_O1 = $value['snippet'];
 
 				$url_amigable = urls_amigables($data_O1['title']);
@@ -94,17 +88,17 @@ function leer_feed($q, $npag, $cant) {
 			}//FIN foreach
 		}
 	}
-	
+
 	$return['page_next'] = '?q='. $q;
 	if ($npag >= 1) {
 		$return['page_next'] .= !empty($pageTokenNext) ? '&pageToken='. $pageTokenNext : '';
 	}
-	
+
 	$return['page_prev'] = '?q='. $q;
 	if ($npag > 1) {
 		$return['page_prev'] .= !empty($pageTokenPrev) ? '&pageToken='. $pageTokenPrev : '';
 	}
-	
+
 	$return['items'] = $items;
 
 	return $return;
@@ -116,23 +110,7 @@ function leer_feed($q, $npag, $cant) {
 if ($q) {
 	$dataFeed = leer_feed($q, $npag, $cant);
 	$vid = $dataFeed['items'];
-	//ECHO "<PRE>"; print_r($vid);EXIT;
 	$num = count($vid, COUNT_RECURSIVE);
-/*
-	for ($i = 0; $i < $cant; $i++) {
-		$video[$i]=array(
-			'titulo'		=> $vid[$i]['titulo'],
-			'id'			=> $vid[$i]['id'],
-			'img'			=> $vid[$i]['img'],
-			// 'duracion'		=> $vid[$i]['duracion'],
-			//'pag_video' 	=> $vid[$i]['pag_video'],
-			// 'pag_tag'		=> $vid[$i]['pag_tag'],
-			'descripcion'	=> $vid[$i]['descripcion'],
-			'contador_view'=> $vid[$i]['contador_view'],
-			'etiqueta'		=> $vid[$i]['etiqueta']
-		);
-	}*/
-
 }//FIN de IF
 
 

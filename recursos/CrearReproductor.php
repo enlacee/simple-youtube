@@ -5,19 +5,20 @@
  
  $data_video = imprimir($videoID, $pag_estado, $YOUR_API_KEY);
  $video = $data_video[0];
+
  //$video; //ARRAy datos almacen
  /**********************************************************************/
-	$videoTitulo = substr(ucwords($video['titulo']),0,50);
- 	$url_1 = $video['id'];
- 	$url_2 = urls_amigables($videoTitulo); 	
- 	$id = $url_1.'-'.$url_2;
+$videoTitulo = substr(ucwords($video['titulo']),0,50);
+$url_1 = $video['id'];
+$url_2 = urls_amigables($videoTitulo); 	
+$id = $url_1.'-'.$url_2;
  /*********************************************************************/	
-	//------------
 	
 /**
 * https://www.googleapis.com/youtube/v3/videos?id='+id_youtube+'&key='+YOUR_API_KEY+'&part=snippet,contentDetails,statistics,status
 */
-function imprimir($videoID,$pag_estado, $YOUR_API_KEY){
+function imprimir($videoID, $pag_estado, $YOUR_API_KEY)
+{
 	$video = false; 
 
 	if (!empty($pag_estado)) {
@@ -28,8 +29,6 @@ function imprimir($videoID,$pag_estado, $YOUR_API_KEY){
 		. '?id=' . $videoID
 		. '&part=snippet,contentDetails,statistics,status'
 		. '&key=' . $YOUR_API_KEY;
-
-		//echo $url_api;exit;
 
 		$string = file_get_contents($url_api);
 		$json = json_decode($string, true);

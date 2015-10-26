@@ -6,10 +6,7 @@ $categoria = "music";
 function leerFeedCategoria($categoria){		
 		global $npag;
 		global $cant; //http://gdata.youtube.com/feeds/api/videos/-/music
-		//http://gdata.youtube.com/feeds/api/standardfeeds/top_favorites
-		//$url_api="http://gdata.youtube.com/feeds/api/standardfeeds/top_favorites?time=today";
-		//$url_api="http://gdata.youtube.com/feeds/api/videos/-/".$categoria;
-		//$url_api='http://gdata.youtube.com/feeds/base/standardfeeds/ES/most_viewed?client=ytapi-youtube-browse&alt=rss&time=today';
+
 		$url_api="http://gdata.youtube.com/feeds/api/videos/-/music?time=today";
 		
 		$sxml = simplexml_load_file($url_api);

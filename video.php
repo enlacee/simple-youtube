@@ -153,7 +153,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	
 	
 	
-	$html .= '<p><a href="'.$HOST.'formulario.php?url='.$HOST2.'">dedicarSSSSSSvideo</a></p>';
+	//$html .= '<p><a href="'.$HOST.'formulario.php?url='.$HOST2.'">dedicarvideo</a></p>';
 	
 	$html .= '<a title="'.$video['titulo'].'" href ="http://www.youtube-mp3.org/get?video_id='.$video['id'].'" target="_blank">descargar este video en MP3 (audio)</a>';
 	$html .= '<!-- AddThis Button BEGIN -->
@@ -167,15 +167,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	$html .= '</div>';
 
 	$html .= '</div>';
-	
-	
-	
 
-
-	
-	
 	echo $html;
-
 }
 ?>
 
@@ -211,20 +204,15 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	
 	<?php
 	if(!empty($_REQUEST['v'])){	
-/*
+
 		echo '<div id="medio"><h2>Videos relacionadosss</h2></div>';	
 		
-		$id		= $_REQUEST['v'];
-		$titulo = $_REQUEST['titulo'];
-		$pagina = $_REQUEST['pag'];
+		$id		= !empty($_REQUEST['v']) ? $_REQUEST['v'] : '';
+		$titulo = !empty($_REQUEST['titulo']) ? $_REQUEST['titulo'] : '';
+		$pagina = !empty($_REQUEST['pag']) ? $_REQUEST['pag'] : 1;
 		
-		// controlando PASar ID
-		$id 	= substr($id,0,11);		
-		//echo '<h1>id='.$id.'</h1>';
-		
-		new VideosRelacionados($id,$pagina);
-*/
-		
+		$id = substr($id,0,11);
+		new VideosRelacionados($id, $pagina);
 	}
 
 	?>
