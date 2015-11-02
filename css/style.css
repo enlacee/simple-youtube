@@ -1,16 +1,16 @@
 /* CSS Document */
 
-*{
-margin:0;
-padding:0;
+* {
+	margin:0;
+	padding:0;
 }
 
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;outline:0;vertical-align:baseline;background:transparent;margin:0;padding:0;}
 
 
-body{	
+body{
 	background:#FFF;
-	color:#999999;	
+	color:#999999;
 	font-family: arial, Tahoma, "Lucida Sans Unicode", "Lucida Grande", verdana, geneva, sans-serif;
 	font-size: 12px;
 	letter-spacing:0.01em;
@@ -28,38 +28,30 @@ h1 a{
 }
 h2 {
 	font-size:18px;
-	}
+}
 
-h2,#medio{
+h2, #medio{
 	text-align:left;
-	background-color:#EFF4FC;	
+	background-color:#EFF4FC;
 }
 h2 a,#suggest a{
 	color:#4889A6;
 	font-weight:bold;
 }
 
-
 a { color:#003873; text-decoration:none; }
 a:hover { text-decoration:none;}
-/*a:visited{color:#92CFE7;}*/
-
-#pagina{/*
-	background-color:#FFFFFF;
-	width:980px;	
-	margin:0 auto;*/
-}
 
 #contenedor{
-	width:980px;	
+	max-width:980px;
 	margin:0 auto;
 }
 
 #header {
-/*background:#FFFFFF url(http://www.tiernoamor.com/tiernoamor.gif) no-repeat;*/
-margin:0px auto 0 auto;
-height:70px;
-
+	margin:0px auto 0 16px;
+	height:70px;
+    background: url('../images/logo.png');
+	background-repeat:no-repeat;
 }
 
 #buscador{
@@ -71,7 +63,7 @@ height:70px;
 #q{
 	padding:5px;
 	border:#C0C0C0 solid 1px;
-	width:300px;
+	width:100%;
 	font-size:16px;
 	color:#666;
 }
@@ -110,9 +102,10 @@ height:70px;
 	border:solid #F3F3F3  1px;
 	padding:5px;
 	min-height:410px;
+	width:629px
 }
 #r-video{
-	width:629px;	
+	width:629px;
 	}
 #google_ads_frame1{
 	width:336px;
@@ -153,7 +146,7 @@ height:70px;
 	color:#666666;
 	font-size:16px;
 	padding:5px;
-	width:310px;	
+	width:310px;
 }
 
 .submit{
@@ -181,7 +174,7 @@ background-color:#FFFFFF;
 }
 
 #medio{
-	height: auto;	
+	height: auto;
 	border:dotted #D6DEEE 1px;
 	margin:7px 0;
 	padding:5px;
@@ -199,21 +192,25 @@ background-color:#FFFFFF;
 	height:126px;
 	width:168px;
 }
-.images, #r-videos , .r-videos {
-	float:left;
-	height:240px;
-	padding:10px 5px;
-	text-align:center;
-	width:180px;
-}
+
 
 
 .images span {
 	font-size:10px;
 }
 
-
-
+.contenedor {
+	display: flex;
+}
+.images {
+	float: left;
+	width: 180px;
+	height: 180px;
+	margin:5px;
+}
+div#buscador form input#q {
+    width: 50vw;
+}
 /*-------------------------------------- POPUP ----------------------------------------*/
 
 #popup {
@@ -289,9 +286,9 @@ margin:0 auto 0 auto;
 
 #divENVXMAIL input,textarea{
 	background-color:#FFFFFF;
-	border:1px solid #ACACAC;	
+	border:1px solid #ACACAC;
 	font-size:20px verdana;
-	
+
 	display:block;
 	padding:5px 8px;
 	margin:3px 0 0 10px;
@@ -313,7 +310,7 @@ font:10px/10px arial;
 
 /*********************** AJAX ******************/
 
-#rpta_ajax{	
+#rpta_ajax{
 width:320px;
 height:200px;
 margin:100px auto 100px auto ;
@@ -332,4 +329,3 @@ margin:100px auto 100px auto ;
 	height:350px;
 	float:right;
 }
-

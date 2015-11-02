@@ -7,15 +7,6 @@ $titulo	= $configuracion['pagina']['titulo'];
 $autor  = $configuracion['autor']['nombre'];
 $YOUR_API_KEY = $configuracion['pagina']['your_api_key'];
 
-//$HOST	= "http://".$_SERVER['HTTP_HOST'].'/video/';	//."/".@$_SERVER['REQUEST_URI']; //RUTA especifica
-//$HOST	= "http://".$_SERVER['HTTP_HOST'].'/video/';
-//$HOST2 	= "http://".$_SERVER['HTTP_HOST'].''.$_SERVER['REQUEST_URI'];
-$HOST2  = $configuracion['pagina']['host'].''.$_SERVER['REQUEST_URI'];;
-$HOST3 = $_SERVER['REQUEST_URI'];
-
-
-//HAy otro $host en VideosRelacionados.php buscalo Y edita SI es necesario
-
 $cant	= 20;
 //------------------Variables --------------------//
 $q = !empty($_GET['q']) ? $_GET['q'] : '';
@@ -29,7 +20,6 @@ if ($page == 1) {
 } else {
 	$npag = $cant*$page;
 }
-
 
 //---------------------------------
 //				FUNCIONES
@@ -104,39 +94,10 @@ function leer_feed($q, $npag, $cant) {
 	return $return;
 }
 
-	//CONDICION QUE MOSTRARA datos
-//	try {
-
 if ($q) {
 	$dataFeed = leer_feed($q, $npag, $cant);
 	$vid = $dataFeed['items'];
 	$num = count($vid, COUNT_RECURSIVE);
-}//FIN de IF
-
-
-//---------------------------------------------------------
-function getDigitos($cadena){
-	$pattern = '/\D+/';
-	return preg_replace($pattern, "",$cadena);
-}
-function getIde($cadena){
-	return substr($cadena,31,11);
-}
-function minutes($secs){
-	if ($secs<0) return false;
-
-	$m = (int)($secs / 60);
-	$s = $secs % 60;
-	$h = (int)($m / 60);
-	$m = $m % 60;
-
-	$text = "";
-	if ($h > 0)
-		$text = $h.":";
-
-	if (strlen($s)==1)
-	   	$s = "0".$s;
-	return $text.$m.":".$s;
 }
 
 
@@ -164,5 +125,3 @@ function urls_amigables($url) {
 
 	return $url;
 }
-
-?>
