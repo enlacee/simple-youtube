@@ -5,7 +5,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<title>Home</title>
-	<script type="text/javascript" src="js/jquery.js"></script>
 </head>
 <body>
 	<div id="pagina">
