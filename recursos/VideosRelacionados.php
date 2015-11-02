@@ -96,8 +96,6 @@ class VideosRelacionados {
 			        $html .= '<a  href="'.$video[$i]['pag_vid'].' " ><img class ="item-hd" src="'.$video[$i]['img'].'" /></a></div>';
 					$html .= '';
 					$html .= '<p><a  title ="'.$this->aMinusculas($video[$i]['titulo']).'" href="'.$video[$i]['pag_vid'].'">'.$video[$i]['titulo'].'</a> </p> ';
-
-					$html .= '<span>duracion: '.$video[$i]['duracion'].' | visto: '.$video[$i]['contador_view'].' veces</span> ';
 					$html .= '</div>';
 
 					echo $html;

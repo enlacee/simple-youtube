@@ -68,13 +68,10 @@ function leer_feed($q, $npag, $cant) {
 					'titulo' =>  $data_O1['title'],
 					'id' => $data_id,
 					'img' => $data_O1['thumbnails']['medium']['url'],
-					'duracion' => '5:00',
 					'pag_video' =>  $data_id . '-' . $url_amigable.'.html',
 					'url_amigable' => $url_amigable,
 					'pag_tag' => 'video.php?tag=',
-					'descripcion' => $data_O1['description'],
-					'contador_view' => '123', //$viewCount[$i],
-					'etiqueta' => 'etiqueta');
+					'descripcion' => $data_O1['description']);
 			}//FIN foreach
 		}
 	}
