@@ -82,7 +82,9 @@
 
 <div class="images">
 <div class="img">
-<a	href="<?php echo $vid[$i]['pag_video']; ?>" > <img src=' <?php echo $vid[$i]['img']; ?> 'alt=' <?php echo $vid[$i]['titulo']; ?> '></a>
+  
+<!-- <a  href="<?php echo $vid[$i]['pag_video']; ?>" >  -->
+<a href="video.php?v=<?php echo $vid[$i]['id'] ?>" > <img src=' <?php echo $vid[$i]['img']; ?> 'alt=' <?php echo $vid[$i]['titulo']; ?> '></a>
 </div><!-- FIN img-->
 
 <p> <?php echo '<a title="'.$vid[$i]['titulo'].'" href="'.$vid[$i]['pag_video'].'">'.$vid[$i]['titulo'].'</a>'; ?></p>

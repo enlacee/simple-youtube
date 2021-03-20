@@ -1,8 +1,8 @@
 [pagina]
-host	= http://localhost/projects/test/simple-youtube/
+host	= http://localhost/acopitan/yo/htdocs/simle_youtube/
 titulo	= simple youtube
 ancho	= 900
-your_api_key = AIzaSyAqiBpEw-JLYW5ktMrZ-EGU6qXfj2GwR44
+your_api_key = AIzaSyAU5Qr9YKw_zA28JheHmcFGyDpd-W7gipw
 
 [base_datos]
 ;servidor	= localhost
