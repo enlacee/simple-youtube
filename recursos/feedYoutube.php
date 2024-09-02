@@ -1,7 +1,7 @@
 <?php
-
-$categoria		= $_REQUEST['categoria'];
-$categoria = "music";
+$categoria = isset($_REQUEST['categoria']) && $_REQUEST['categoria'] !== '' 
+	? $_REQUEST['categoria'] 
+	: 'music';
 
 function leerFeedCategoria($categoria){		
 		global $npag;
@@ -55,7 +55,7 @@ function leerFeedCategoria($categoria){
 				 'titulo'		=> (strtolower($titulo[$i])),
 				 'id'			=> getIde($url[$i]),
 				 'img'			=> 'http://img.youtube.com/vi/'.getIde($url[$i]).'/hqdefault.jpg',
-				 'duracion'		=> minutes($length[$i]),
+				 'duracion'		=> $length[$i],
 				 'pag_video' 	=> ''.getIde($url[$i]).'-'.$url_amigable.'.html',
 				 'url_amigable' => $url_amigable,
 				 'pag_tag'		=> 'video.php?tag=',

@@ -17,14 +17,15 @@
  * @copyright aporte youtube
  * @link
  */?>
+<?php include 'recursos/VideosRelacionados.php'; ?>
 <?php include 'recursos/functions.php'; ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-
-<meta name="description" content="Buscar gratis millones de videos en toda la red de youtube. Tierno amor portal de videos digitales mas grande la red." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Buscar gratis millones de videos en toda la red de youtube. Tierno amor portal de videos digitales mas grande la red." />
      <meta name="keywords" content="imagenes, videos, fondos, wallpapers, bajar videos, descargar videos, youtube" />
-
      <meta http-equiv="content-language" content="ES" />
      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 

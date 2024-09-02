@@ -1,11 +1,13 @@
 <?php include 'recursos/functions.php'; ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 <?php
 	include 'recursos/CrearReproductor.php';	
 	include 'recursos/VideosRelacionados.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description" content="<?php echo $video['descripcion'];?>" />
 <meta name="keywords" content="<?php echo $video['etiqueta']?>" />
@@ -33,7 +35,7 @@
 <div id="pagina">
 
 <div id="header">
-    <a href="javascript:void(0);" onClick="verEm()">ver </a>
+    <!-- <a href="javascript:void(0);" onClick="verEm()">ver </a> -->
 </div> 
 
 <div id="buscador">
@@ -115,23 +117,10 @@ if(empty($_REQUEST['p'])){
 	$html .= '<h1>'.$video['titulo'].'</h1>';
 
 	$html .= '<div id="reproductor">';
-	$html .= '<span id ="google_ads_frame1">
-<script type="text/javascript"><!--
-google_ad_client = "pub-9694619181645086";
-/* 336x280, creado 23/03/08 */
-google_ad_slot = "6324192189";
-google_ad_width = 336;
-google_ad_height = 280;
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-</span>';
 	$html .= '<div id ="r-video">';//inicio
 //	$html .= '<iframe class="youtube-player" type="text/html" width="629" height="353" src="http://www.youtube.com/embed/'.$video['id'].'" frameborder="0"></iframe><br>';
 	
-	$html .= '<object width="629" height="353" id="ytplayer" data="http://www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" >';
+	$html .= '<object width="100%" height="353" id="ytplayer" data="http://www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" >';
 	$html .= '<param value="always" name="allowscriptaccess">';
     $html .= '<param value="http://www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" name="movie">';
     $html .= '</object>';	
@@ -212,7 +201,12 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 		$pagina = !empty($_REQUEST['pag']) ? $_REQUEST['pag'] : 1;
 		
 		$id = substr($id,0,11);
-		new VideosRelacionados($id, $pagina);
+		
+		/**
+		 * Not work!, API YOUTUBE V3 : relatedToVideoId
+		 * IT WAS REMOVED
+		 */
+		// new VideosRelacionados($id, $pagina);
 	}
 
 	?>

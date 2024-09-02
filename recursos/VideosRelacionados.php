@@ -136,7 +136,7 @@ class VideosRelacionados {
 	function descripcion_c($texto){
 		return substr($texto,0,150);	
 	}	
-	function minutes($secs){
+	static function minutes($secs){
 		if ($secs<0) return false;
 	    
 		$m = (int)($secs / 60); 

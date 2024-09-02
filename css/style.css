@@ -333,3 +333,17 @@ margin:100px auto 100px auto ;
 	float:right;
 }
 
+/**
+fix mobile
+*/
+@media only screen and (max-width: 768px) {
+	#contenedor{
+		width: 100%;
+	}
+	.images{
+		padding: 2px;
+	}
+	#r-video{
+		width: 100%;
+	}
+}
