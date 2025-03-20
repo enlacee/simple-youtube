@@ -114,11 +114,11 @@ if(empty($_REQUEST['p'])){
 
 	$html .= '<div id="reproductor">';
 	$html .= '<div id ="r-video">';//inicio
-//	$html .= '<iframe class="youtube-player" type="text/html" width="629" height="353" src="http://www.youtube.com/embed/'.$video['id'].'" frameborder="0"></iframe><br>';
+//	$html .= '<iframe class="youtube-player" type="text/html" width="629" height="353" src="//www.youtube.com/embed/'.$video['id'].'" frameborder="0"></iframe><br>';
 	
-	$html .= '<object width="100%" height="353" id="ytplayer" data="http://www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" >';
+	$html .= '<object width="100%" height="353" id="ytplayer" data="//www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" type="application/x-shockwave-flash" allowfullscreen="true" >';
 	$html .= '<param value="always" name="allowscriptaccess">';
-    $html .= '<param value="http://www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" name="movie">';
+    $html .= '<param value="//www.youtube.com/v/'.$video['id'].'?enablejsapi=1&autoplay=1&amp;version=3" name="movie">';
     $html .= '</object>';	
 
 	
@@ -139,16 +139,7 @@ if(empty($_REQUEST['p'])){
 	
 	
 	//$html .= '<p><a href="'.$HOST.'formulario.php?url='.$HOST2.'">dedicarvideo</a></p>';
-	
-	$html .= '<a title="'.$video['titulo'].'" href ="http://www.youtube-mp3.org/get?video_id='.$video['id'].'" target="_blank">descargar este video en MP3 (audio)</a>';
-	$html .= '<!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style">
-<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-<a class="addthis_button_tweet"></a>
-<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4c8bc3bb4814616e" class="addthis_button_compact">Compartir</a>
-</div>
-<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4c8bc3bb4814616e"></script>
-<!-- AddThis Button END -->';
+
 	$html .= '</div>';
 
 	$html .= '</div>';

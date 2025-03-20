@@ -26,6 +26,6 @@ function llegadaDatos(datos){
 	$('#youtube').html(datos);
 }
 
-$(document).ready( DD_roundies.addRule('.modulo', '5px', true) );
-$(document).ready( DD_roundies.addRule('.img', '3px 3px 3px 3px', true) );
-$(document).ready( DD_roundies.addRule('.busca', '5px', true) );
+// $(document).ready( DD_roundies.addRule('.modulo', '5px', true) );
+// $(document).ready( DD_roundies.addRule('.img', '3px 3px 3px 3px', true) );
+// $(document).ready( DD_roundies.addRule('.busca', '5px', true) );
