@@ -341,7 +341,10 @@ fix mobile
 		width: 100%;
 	}
 	.images{
-		padding: 2px;
+		padding: 0px;
+	}
+	.img{
+		padding: 0px;
 	}
 	#r-video{
 		width: 100%;

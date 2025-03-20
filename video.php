@@ -17,10 +17,6 @@
 <title><?php echo $video['titulo'];?> | <?php echo $titulo; ?></title>
 <!-- Titulo de la pagina-->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="icon" href="http://www.tiernoamor.com/favicon.ico"
-	type="image/x-icon">
-<link rel="shortcut icon"
-	href="http://www.tiernoamor.com/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="<?php echo $HOST ; ?>css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -218,10 +214,6 @@ if(empty($_REQUEST['p'])){
 <!-- pie de pagina-->
 <div class="both"></div>
 
-<div id="pie">
-	<a href="<?php echo $HOST; ?>"><?php echo $titulo; ?></a>
-	<a href="http://whos.amung.us/stats/rk37gvmh/" target=_blank><IMG border=0 src="http://whos.amung.us/swidget/rk37gvmh.png" width=0 height=0></a>
-</div>
 
 </div>
 <!-- </div>  -->

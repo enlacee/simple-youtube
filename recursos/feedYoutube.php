@@ -1,7 +1,7 @@
 <?php
-$categoria = isset($_REQUEST['categoria']) && $_REQUEST['categoria'] !== '' 
-	? $_REQUEST['categoria'] 
-	: 'music';
+
+$categoria		= $_REQUEST['categoria'];
+$categoria = "music";
 
 function leerFeedCategoria($categoria){		
 		global $npag;
