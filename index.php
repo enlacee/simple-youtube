@@ -39,19 +39,6 @@
 <script type="text/javascript" src="<?php echo $HOST; ?>js/DD_roundies.js"></script>
 <script type="text/javascript" src="<?php echo $HOST; ?>js/funciones.js"></script>
  -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-5028317-2']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </head>
 <body>
 <div id="pagina">
@@ -133,7 +120,9 @@
 </div><!-- fin contenedor -->
 
 <!-- pie de pagina-->
-<div id="pie"> <a href="<?php echo $HOST; ?>"><?php echo $titulo; ?></a> <A href="http://whos.amung.us/stats/rk37gvmh/" target=_blank><IMG border=0 src="http://whos.amung.us/swidget/rk37gvmh.png" width=0 height=0></A></div>
+<div id="pie">
+  <a href="<?php echo $HOST; ?>"><?php echo $titulo; ?></a> 
+</div>
 
 </div>
 </body>
