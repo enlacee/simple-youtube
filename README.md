@@ -36,5 +36,4 @@ Esta es un paso a paso rapido y breve si necesitas mas apoyo revisa la documenta
 
 ## Preview Web
 
-![thumbnail](README/screenshot.png)
-
+![Screenshot v4](./README/screenshotv4.png)
